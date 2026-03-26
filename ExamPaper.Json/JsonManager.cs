@@ -22,25 +22,21 @@ public static class JsonManager
                 File.WriteAllText(path, "[]");
                 return new List<T>();
             }
-            
             var fileText = File.ReadAllText(path);
             var objects = JsonSerializer.Deserialize<List<T>>(fileText);
-
             if (objects == null)
             {
                 objects = new List<T>();
                 File.WriteAllText(path, JsonSerializer.Serialize(objects));
             }
-            
             return objects;
         }
-        catch(JsonException)
+        catch (JsonException)
         {
             File.WriteAllText(path, "[]");
             return new List<T>();
         }
     }
-    
     /// <summary>
     /// Метод для сериализации в Json файл.  
     /// </summary>
