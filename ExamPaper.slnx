@@ -3,6 +3,10 @@
     <File Path=".gitattributes" />
     <File Path=".gitignore" />
   </Folder>
+  <Folder Name="/github/">
+    <File Path=".github/workflows/dotnet_format.yml" />
+    <File Path=".github/workflows/dotnet_test.yml" />
+  </Folder>
   <Folder Name="/others/">
     <File Path=".editorconfig" />
     <File Path="class_diagram.png" />
