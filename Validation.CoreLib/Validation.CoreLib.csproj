@@ -8,7 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="ExamPaperRules\" />
       <Folder Include="FactoryOptionsRules\" />
       <Folder Include="QuestionRules\" />
     </ItemGroup>
