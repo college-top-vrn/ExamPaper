@@ -5,5 +5,7 @@
   </Folder>
   <Folder Name="/others/">
     <File Path=".editorconfig" />
+    <File Path="class_diagram.png" />
+    <File Path="README.md" />
   </Folder>
 </Solution>
