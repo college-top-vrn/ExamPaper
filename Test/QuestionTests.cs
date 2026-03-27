@@ -2,33 +2,30 @@
 
 public class QuestionTests
 {
-    public class QuestionTest
+    private readonly TypeQuestion _typeExample;
+
+    public QuestionTests()
     {
-        private readonly TypeQuestion _typeExample;
+        _typeExample = new TypeQuestion("MultipleChoice", "Вопрос с выбором ответа");
+    }
 
-        public QuestionTests()
-        {
-            _typeExample = new TypeQuestion("MultipleChoice", "Вопрос с выбором ответа");
-        }
+    [Fact]
+    public void Constructor_WhenValidDataPassed_ShouldSetQuestion()
+    {
+        var expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
 
-        [Fact]
-        public void Constructor_WhenValidDataPassed_ShouldSetQuestion()
-        {
-            var expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
+        var question = new Question(expectedQuestionText, _typeExample);
 
-            var question = new Question(expectedQuestionText, _typeExample);
+        Assert.Equal(expectedQuestionText, question.Question());
+    }
 
-            Assert.Equal(expectedQuestionText, question.Question());
-        }
+    [Fact]
+    public void Constructor_WhenValidDataPassed_ShouldSetQuestionType()
+    {
+        var expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
 
-        [Fact]
-        public void Constructor_WhenValidDataPassed_ShouldSetQuestionType()
-        {
-            var expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
+        var question = new Question(expectedQuestionText, _typeExample);
 
-            var question = new Question(expectedQuestionText, _typeExample);
-
-            Assert.Same(_typeExample, question.Type());
-        }
+        Assert.Same(_typeExample, question.Type());
     }
 }

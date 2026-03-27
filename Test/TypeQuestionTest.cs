@@ -3,33 +3,26 @@
 public class TypeQuestionTest
 {
     [Fact]
-    public void Test1()
+    public void Constructor_WithOnlyName_CreatesTypeQuestion()
     {
-        [Fact]
-        public void Constructor_WithOnlyName_CreatesTypeQuestion()
-        {
+        var typeQuestion = new TypeQuestion("Multiple Choice");
 
-            var typeQuestion = new TypeQuestion("Multiple Choice");
-        
-            Assert.Equal("Multiple Choice", typeQuestion.Name);
-        }
-    
-        [Fact]
-        public void Constructor_WithOnlyDecsprition_CreatesTypeQuestion()
-        {
+        Assert.Equal("Multiple Choice", typeQuestion.Name);
+    }
 
-            var typeQuestion = new TypeQuestion("Multiple Choice", "No Comments");
-        
-            Assert.Equal("No Comments", typeQuestion.Descprition);
-        }
-    
-        [Fact]
-        public void Constructor_WithOnlyDecspritionNull_CreatesTypeQuestion()
-        {
+    [Fact]
+    public void Constructor_WithOnlyDecsprition_CreatesTypeQuestion()
+    {
+        var typeQuestion = new TypeQuestion("Multiple Choice", "No Comments");
 
-            var typeQuestion = new TypeQuestion("Multiple Choice");
-        
-            Assert.Null(typeQuestion.Descprition);
-        }
+        Assert.Equal("No Comments", typeQuestion.Descprition);
+    }
+
+    [Fact]
+    public void Constructor_WithOnlyDecspritionNull_CreatesTypeQuestion()
+    {
+        var typeQuestion = new TypeQuestion("Multiple Choice");
+
+        Assert.Null(typeQuestion.Descprition);
     }
 }
