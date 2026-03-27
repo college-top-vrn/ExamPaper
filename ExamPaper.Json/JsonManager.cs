@@ -19,21 +19,19 @@ public static class JsonManager
         {
             if (!File.Exists(path))
             {
-                File.WriteAllText(path, "[]");
                 return new List<T>();
             }
             var fileText = File.ReadAllText(path);
             var objects = JsonSerializer.Deserialize<List<T>>(fileText);
             if (objects == null)
             {
-                objects = new List<T>();
-                File.WriteAllText(path, JsonSerializer.Serialize(objects));
+                return new List<T>();
             }
             return objects;
         }
         catch (JsonException)
         {
-            File.WriteAllText(path, "[]");
+            Console.WriteLine("Ошибка при десериализации.");
             return new List<T>();
         }
     }
@@ -44,7 +42,7 @@ public static class JsonManager
     /// <param name="path">Путь к файлу Json.</param>
     /// <typeparam name="T">Тип любого класса.</typeparam>
     /// <returns>Ничего.</returns>
-    public static void Serialize<T>(List<T> objects, string path) where T : class
+    public static void Serialize<T>(IEnumerable<T> objects, string path) where T : class
     {
         var json = JsonSerializer.Serialize(objects);
         File.WriteAllText(path, json);
