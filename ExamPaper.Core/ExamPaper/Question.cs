@@ -3,7 +3,7 @@
 /// <summary>
 /// Класс который используется в экзаменационном билете. Класс описывает сам вопрос
 /// </summary>
-public class Question
+public record Question
 {
     /// <summary>
     /// Вопрос
