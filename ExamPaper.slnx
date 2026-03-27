@@ -12,4 +12,5 @@
     <File Path="class_diagram.png" />
     <File Path="README.md" />
   </Folder>
+  <Project Path="ExamPaper.Json/ExamPaper.Json.csproj" />
 </Solution>
