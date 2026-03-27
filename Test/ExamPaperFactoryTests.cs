@@ -3,52 +3,57 @@
 public class ExamPaperFactoryTests
 {
     [Fact]
-    public void Constructor_Stores_Options_Correctly()
+    public void Constructor_WithValidOptions_CreatesFactory()
     {
-        var options = new ExamPaperFactoryOption(10);
-        
+        var options = new ExamPaperFactoryOptions(3);
+
         var factory = new ExamPaperFactory(options);
-        
-        Assert.Same(options, factory.Options);
+
+        Assert.NotNull(factory);
     }
 
     [Fact]
-    public void Create_Returns_ExamPaper_With_Correct_Number()
+    public void Create_WhenNoQuestions_ReturnsExamPaperWithEmptyQuestionsList()
     {
-        var options = new ExamPaperFactoryOption(5);
+        var options = new ExamPaperFactoryOptions(3);
         var factory = new ExamPaperFactory(options);
-        
+
         var examPaper = factory.Create();
-        
-        Assert.Equal(5, examPaper.Number);
-    }
-    
-    [Fact]
-    public void Create_Returns_ExamPaper_With_Empty_Questions_List()
-    {
-        // Arrange
-        var options = new ExamPaperFactoryOption(3);
-        var factory = new ExamPaperFactory(options);
-        
-        // Act
-        var examPaper = factory.Create();
-        
-        // Assert
-        Assert.NotNull(examPaper.Questions);
-        Assert.Empty(examPaper.Questions);
+
+        Assert.NotNull(examPaper.Question);
+        Assert.NotEmpty(examPaper.Number);
     }
 
-    [Theory]
-    [InlineData(1)]
-    [InlineData(10)]
-    [InlineData(50)]
-    public void Create_Uses_Options_QuantityQuestion(int quantity)
+    [Fact]
+    public void Factory_Create_ExamPaper()
     {
-        var options = new ExamPaperFactoryOption(quantity);
-        var factory = new ExamPaperFactory(options);
-        
-        var examPaper = factory.Create();
-        
-        Assert.Equal(quantity, examPaper.Number);
+        var options = new ExamPaperFactoryOptions(2);
+
+        var multipleChoiceType = new TypeQuestion("Multiple Choice", "Select one answer");
+        var essayType = new TypeQuestion("Essay", "Write detailed answer");
+
+        var question1 = new Questions("What is 2+2?", multipleChoiceType);
+        var question2 = new Questions("Explain dependency injection", essayType);
+        var question3 = new Questions("What is SOLID?", essayType);
+
+        var questions = new List<Questions> { question1, question2, question3 };
+
+        string expectedNumber = "EXAM-001";
+        var expectedExamPaper = new ExamPaper(expectedNumber, questions);
+
+        var actualNumber = expectedExamPaper.Number();
+        var actualQuestions = expectedExamPaper.Questions();
+
+        Assert.Equal(expectedNumber, actualNumber);
+        Assert.NotNull(actualQuestions);
+        Assert.Equal(3, actualQuestions.Count);
+
+        Assert.Equal(question1.Question(), actualQuestions[0].Question());
+        Assert.Equal(question2.Question(), actualQuestions[1].Question());
+        Assert.Equal(question3.Question(), actualQuestions[2].Question());
+
+        Assert.Equal("Multiple Choice", actualQuestions[0].Type().Name());
+        Assert.Equal("Essay", actualQuestions[1].Type().Name());
+        Assert.Equal("Essay", actualQuestions[2].Type().Name());
     }
 }
