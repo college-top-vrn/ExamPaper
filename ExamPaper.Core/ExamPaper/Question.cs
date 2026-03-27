@@ -1,7 +1,7 @@
 ﻿namespace ExamPaper.Core.ExamPaper;
 
 /// <summary>
-/// Класс вопрос
+/// Класс который используется в экзаменационном билете. Класс описывает сам вопрос
 /// </summary>
 public class Question
 {

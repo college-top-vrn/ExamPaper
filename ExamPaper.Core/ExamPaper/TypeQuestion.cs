@@ -3,7 +3,7 @@
 /// <summary>
 /// Класс отвечающий за тип вопроса
 /// </summary>
-public class TypeQuestion
+public record TypeQuestion
 {
     /// <summary>
     /// Имя
