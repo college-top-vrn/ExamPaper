@@ -8,7 +8,7 @@ public class ExamPaper
     /// <summary>
     /// Номер билета
     /// </summary>
-    public int Number { get; }
+    public string Number { get; }
 
     /// <summary>
     /// Список вопросов
@@ -20,7 +20,7 @@ public class ExamPaper
     /// </summary>
     /// <param name="number">Номер</param>
     /// <param name="questions">Список вопросов</param>
-    public ExamPaper(int number, List<Question> questions)
+    public ExamPaper(string number, List<Question> questions)
     {
         Number = number;
         Questions = questions;

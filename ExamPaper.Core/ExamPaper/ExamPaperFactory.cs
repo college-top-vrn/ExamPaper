@@ -19,17 +19,18 @@ public class ExamPaperFactory
     /// Конструктор
     /// </summary>
     /// <param name="options">Опция фабрики</param>
-    public ExamPaperFactory(ExamPaperFactoryOption options)
+    public ExamPaperFactory(ExamPaperFactoryOption options, List<Question> questions)
     {
         Options = options;
+        Questions = questions;
     }
 
     /// <summary>
     /// Метод создания билета
     /// </summary>
     /// <returns>Новый эекзаменационный билет</returns>
-    public ExamPaper Create()
+    public ExamPaper Create(string number)
     {
-        return new ExamPaper(Options.QuantityQuestion, Questions);
+        return new ExamPaper(number, Questions);
     }
 }
