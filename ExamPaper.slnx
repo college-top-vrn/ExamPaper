@@ -12,7 +12,7 @@
     <File Path="class_diagram.png" />
     <File Path="README.md" />
   </Folder>
-
+  
   <Project Path="ExamPaper.Core\ExamPaper.Core.csproj" />
-  <Project Path="Validation.CoreLib\Validation.CoreLib.csproj" />
+  <Project Path="ExamPaper.Json/ExamPaper.Json.csproj" />
 </Solution>
