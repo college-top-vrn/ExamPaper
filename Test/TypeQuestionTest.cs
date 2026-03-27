@@ -1,6 +1,4 @@
-﻿using ExamPaper;
-
-namespace Test;
+﻿namespace Test;
 
 public class TypeQuestionTest
 {
