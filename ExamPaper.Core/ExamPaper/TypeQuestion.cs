@@ -1,4 +1,4 @@
-﻿namespace ExamPaper.Core;
+﻿namespace ExamPaper.Core.ExamPaper;
 
 public class TypeQuestion
 {
