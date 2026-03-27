@@ -18,7 +18,7 @@ public class Validator<T> : IValidator<T>
     /// </summary>
     /// <param name="rules">Коллекция правил, реализующих IValidationRule.</param>
     /// <exception cref="ArgumentNullException">Выбрасывается, если коллекция правил равна null.</exception>
-    public Validator(IEnumerable<IValidationRule<T>> rules)
+    public Validator(IEnumerable<IValidationRule<T>> rules) 
     {
         _rules = rules ?? throw new ArgumentNullException(nameof(rules));
     }

@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 using System;
 using System.Linq;
 
@@ -13,8 +14,8 @@ public class UniqueQuestionRule
     {
         if (question == null)
             return true;
-        
-        return question 
+
+        return question
             .Where(q => q != null && !string.IsNullOrWhiteSpace(q.Text))
             .Select(q => q.Text.Trim())
             .GroupBy(t => t)
