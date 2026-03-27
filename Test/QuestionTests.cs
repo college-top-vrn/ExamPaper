@@ -2,30 +2,36 @@
 
 public class QuestionTests
 {
-    private readonly TypeQuestion _typeExample;
-
-    public QuestionTests()
-    {
-        _typeExample = new TypeQuestion("MultipleChoice", "Вопрос с выбором ответа");
-    }
-
     [Fact]
-    public void Constructor_WhenValidDataPassed_ShouldSetQuestion()
+    public void Constructor_ShouldSet_QuestionValue()
     {
-        string expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
-
-        var question = new Question(expectedQuestionText, _typeExample);
-
-        Assert.Equal(expectedQuestionText, question.Question());
+        var questionValue = "What is your name?";
+        var type = new TypeQuestion("Open question", "Answer in free form");
+        
+        var question = new Question(questionValue, type);
+        
+        Assert.Equal(questionValue, question.QuestionValue);
     }
-
+    
     [Fact]
-    public void Constructor_WhenValidDataPassed_ShouldSetQuestionType()
+    public void Constructor_ShouldSet_TypeReference()
     {
-        string expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
+        var questionValue = "How old are you?";
+        var type = new TypeQuestion("Numeric", "Number is expected");
+        
+        var question = new Question(questionValue, type);
+        
+        Assert.Same(type, question.Type);
+    }
+    
+    [Fact]
+    public void Properties_ShouldBeAccessible_AfterInitialization()
+    {
+        var type = new TypeQuestion("Text", null);
 
-        var question = new Question(expectedQuestionText, _typeExample);
+        var question = new Question("Question text", type);
 
-        Assert.Same(_typeExample, question.Type());
+        Assert.Equal("Question text", question.QuestionValue);
+        Assert.Same(type, question.Type);
     }
 }
