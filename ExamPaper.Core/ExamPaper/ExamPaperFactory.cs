@@ -4,6 +4,7 @@ public class ExamPaperFactory
 {
     public ExamPaperFactoryOption Options { get; }
     public List<Question> Questions { get; }
+
     public ExamPaperFactory(ExamPaperFactoryOption options)
     {
         Options = options;

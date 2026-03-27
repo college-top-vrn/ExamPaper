@@ -3,7 +3,7 @@ namespace ExamPaper.Core.ExamPaper;
 public class ExamPaper
 {
     public int Number { get; }
-    public List<Question>  Questions { get; }
+    public List<Question> Questions { get; }
 
     public ExamPaper(int number, List<Question> questions)
     {
@@ -11,4 +11,3 @@ public class ExamPaper
         Questions = questions;
     }
 }
-//
