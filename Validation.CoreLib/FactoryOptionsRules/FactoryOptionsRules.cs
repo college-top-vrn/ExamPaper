@@ -1,16 +1,29 @@
+using Validation.CoreLib.Core;
+
 namespace Validation.CoreLib.FactoryOptionsRules;
 
-public class FactoryOptions
+public class FactoryOptions 
 {
     public int QuantityQuestion { get; set; }
 }
 
-public class ValidatorOptionsRules
-{
-    public bool IsValid(FactoryOptions options)
-    {
-        if (options is null) return false;
+public class ValidatorOptionsRules : IValidationRule<FactoryOptions> 
 
-        return options.QuantityQuestion > 0;
+{
+    public ValidationResult Validate(FactoryOptions item)
+    {
+        var result = new ValidationResult();
+        if (item is null)
+        {
+            result.AddError("Настройка фабрики не указана либо null");
+            return result;
+        }
+
+        if (item.QuantityQuestion <= 0)
+        {
+            result.AddError("Количество вопросов должно быть больше 0");
+        }
+        return result;
     }
+    
 }
