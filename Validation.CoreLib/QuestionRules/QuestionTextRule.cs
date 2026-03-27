@@ -13,7 +13,7 @@ public class QuestionTextRule
     {
         if (string.IsNullOrWhiteSpace(text))
             return false;
-        
+
         text = text.Trim();
         return text.Length >= _minLength;
     }
