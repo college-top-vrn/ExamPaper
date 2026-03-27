@@ -15,24 +15,17 @@ public static class JsonManager
     /// <returns>Список из объектов класса T.</returns>
     public static IEnumerable<T> Deserialize<T>(string path) where T : class
     {
-        try
-        {
-            if (!File.Exists(path))
-            {
-                return [];
-            }
-            var fileText = File.ReadAllText(path);
-            var objects = JsonSerializer.Deserialize<List<T>>(fileText);
-            if (objects == null)
-            {
-                return [];
-            }
-            return objects;
-        }
-        catch (JsonException)
+        if (!File.Exists(path))
         {
             return [];
         }
+        var fileText = File.ReadAllText(path);
+        var objects = JsonSerializer.Deserialize<List<T>>(fileText);
+        if (objects != null)
+        {
+            return objects;
+        }
+        return [];
     }
     /// <summary>
     /// Метод для сериализации в Json файл.  
