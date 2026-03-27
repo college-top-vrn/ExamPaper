@@ -19,20 +19,19 @@ public static class JsonManager
         {
             if (!File.Exists(path))
             {
-                return new List<T>();
+                return [];
             }
             var fileText = File.ReadAllText(path);
             var objects = JsonSerializer.Deserialize<List<T>>(fileText);
             if (objects == null)
             {
-                return new List<T>();
+                return [];
             }
             return objects;
         }
         catch (JsonException)
         {
-            Console.WriteLine("Ошибка при десериализации.");
-            return new List<T>();
+            return [];
         }
     }
     /// <summary>
