@@ -1,4 +1,4 @@
-﻿namespace ExamPaperFactory;
+﻿namespace ExamPaper.Core;
 
 public class Question
 {

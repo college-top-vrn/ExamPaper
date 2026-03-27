@@ -12,5 +12,5 @@
     <File Path="class_diagram.png" />
     <File Path="README.md" />
   </Folder>
-  <Project Path="ExamPaperFactory/ExamPaperFactory.csproj" />
+  <Project Path="ExamPaper.Core/ExamPaper.Core.csproj" />
 </Solution>
