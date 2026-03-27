@@ -3,16 +3,13 @@
 public class ExamPaperFactoryOptionsTest
 {
     [Fact]
-    public void Constructor_SetsQuantityQuestionsCorrectly()
+    public void Constructor_ShouldSet_QuantityQuestion()
     {
-        // Arrange
-        const int expectedQuantity = 10;
+        var quantity = 10;
+        
+        var option = new ExamPaperFactoryOption(quantity);
 
-        // Act
-        var options = new ExamPaperFactoryOptions(expectedQuantity);
-
-        // Assert
-        Assert.Equal(expectedQuantity, options.QuantityQuestions);
+        Assert.Equal(quantity, option.QuantityQuestion);
     }
 
 }
