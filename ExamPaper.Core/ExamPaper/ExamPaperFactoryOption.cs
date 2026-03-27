@@ -1,7 +1,8 @@
 ﻿namespace ExamPaper.Core.ExamPaper;
 
 /// <summary>
-/// Класс вопрос
+/// Класс параметров для фабрики экзаменационных билетов.
+/// Определяет настройки генерации, такие как количество вопросов.
 /// </summary>
 public class ExamPaperFactoryOption
 {
