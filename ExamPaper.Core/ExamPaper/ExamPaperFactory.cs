@@ -9,10 +9,12 @@ public class ExamPaperFactory
     /// Опция фабрики
     /// </summary>
     public ExamPaperFactoryOption Options { get; }
+
     /// <summary>
     /// Список вопросов
     /// </summary>
     public List<Question> Questions { get; }
+
     /// <summary>
     /// Конструктор
     /// </summary>
@@ -21,6 +23,7 @@ public class ExamPaperFactory
     {
         Options = options;
     }
+
     /// <summary>
     /// Метод создания билета
     /// </summary>
@@ -30,4 +33,3 @@ public class ExamPaperFactory
         return new ExamPaper(Options.QuantityQuestion, Questions);
     }
 }
-//

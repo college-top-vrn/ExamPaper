@@ -9,11 +9,12 @@ public class ExamPaper
     /// Номер билета
     /// </summary>
     public int Number { get; }
+
     /// <summary>
     /// Список вопросов
     /// </summary>
     public List<Question> Questions { get; }
-    
+
     /// <summary>
     /// Конструктор
     /// </summary>
