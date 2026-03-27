@@ -12,7 +12,7 @@ public class QuestionTests
     [Fact]
     public void Constructor_WhenValidDataPassed_ShouldSetQuestion()
     {
-        var expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
+        string expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
 
         var question = new Question(expectedQuestionText, _typeExample);
 
@@ -22,7 +22,7 @@ public class QuestionTests
     [Fact]
     public void Constructor_WhenValidDataPassed_ShouldSetQuestionType()
     {
-        var expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
+        string expectedQuestionText = "Какой тип данных используется в C# для хранения целых чисел?";
 
         var question = new Question(expectedQuestionText, _typeExample);
 

@@ -5,7 +5,7 @@ public class ExamPaperTests
     [Fact]
     public void Constructor_WithNumberAndQuestions_CreatesExamPaper()
     {
-        var number = "EXAM-001";
+        string number = "EXAM-001";
         var questions = new List<Question>
         {
             new Question("Question 1", new TypeQuestion("Multiple Choice")),

@@ -38,7 +38,7 @@ public class ExamPaperFactoryTests
 
         var questions = new List<Question> { question1, question2, question3 };
 
-        var expectedNumber = "EXAM-001";
+        string expectedNumber = "EXAM-001";
         var expectedExamPaper = new ExamPaper(expectedNumber, questions);
 
         var actualNumber = expectedExamPaper.Number();
