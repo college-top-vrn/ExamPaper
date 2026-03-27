@@ -3,22 +3,35 @@
 using System;
 using System.Linq;
 
+using Validation.CoreLib.Core;
+
 public class Question
 {
     public string Text { get; set; }
 }
 
-public class UniqueQuestionRule
+public class UniqueQuestionRule : IValidationRule<Question[]>
 {
-    public bool IsValid(Question[] question)
+    public ValidationResult Validate(Question[] questions)
     {
-        if (question == null)
-            return true;
+        var result = new ValidationResult();
+        if (questions == null || questions.Length == 0)
+        {
+            result.AddError("Список вопрос пуст или равен null");
+            return result;
+        }
 
-        return question
+
+        var allUniqueQuestions = questions
             .Where(q => q != null && !string.IsNullOrWhiteSpace(q.Text))
             .Select(q => q.Text.Trim())
             .GroupBy(t => t)
             .All(g => g.Count() == 1);
+        if (!allUniqueQuestions)
+        {
+            result.AddError("в билете присутсвуют уже использованные вопросы");
+        }
+
+        return result;
     }
 }
