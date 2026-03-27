@@ -2,12 +2,12 @@
 
 public class Question
 {
-    public string _Question { get; init; }
-    public TypeQuestion _type { get; init; }
+    public string QuestionValue { get; init; }
+    public TypeQuestion Type { get; init; }
 
-    public Question(string question, TypeQuestion type)
+    public Question(string questionValue, TypeQuestion type)
     {
-        _Question = question;
-        _type = type;
+        QuestionValue = questionValue;
+        Type = type;
     }
 }
