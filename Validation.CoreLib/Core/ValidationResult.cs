@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+
 
 namespace Validation.CoreLib.Core;
 
@@ -17,7 +17,7 @@ public class ValidationResult
     /// <summary>
     /// Возвращает true, если объект успешно прошел проверку (нет ошибок).
     /// </summary>
-    public bool IsValid => !Errors.Any();
+    public bool IsValid => Errors.Count == 0;
 
 
     /// <summary>
@@ -34,7 +34,7 @@ public class ValidationResult
 
 
     /// <summary>
-    /// Добавляет коллекцию ошибок в список результатов.
+    /// Добавляет коллекцию ошибок в список ошибок.
     /// </summary>
     /// <param name="errors">Коллекция текстов ошибок.</param>
     public void AddErrors(IEnumerable<string>? errors)
