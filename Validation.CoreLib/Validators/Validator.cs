@@ -11,16 +11,17 @@ namespace Validation.CoreLib.Validators;
 /// <typeparam name="T">Тип проверяемого объекта.</typeparam>
 public class Validator<T> : IValidator<T>
 {
-    private readonly IEnumerable<IValidationRule<T>> _rules;
+    /// <inheritdoc />
+    public IEnumerable<IValidationRule<T>> Rules { get; }
 
     /// <summary>
     /// Инициализирует новый экземпляр валидатора с заданным набором правил.
     /// </summary>
     /// <param name="rules">Коллекция правил, реализующих IValidationRule.</param>
     /// <exception cref="ArgumentNullException">Выбрасывается, если коллекция правил равна null.</exception>
-    public Validator(IEnumerable<IValidationRule<T>> rules) 
+    public Validator(IEnumerable<IValidationRule<T>> rules)
     {
-        _rules = rules ?? throw new ArgumentNullException(nameof(rules));
+        Rules = rules ?? throw new ArgumentNullException(nameof(rules));
     }
 
 
@@ -33,13 +34,13 @@ public class Validator<T> : IValidator<T>
     {
         var result = new ValidationResult();
 
-        if (item == null)
+        if (item is null)
         {
             result.AddError("Объект для валидации не может быть null.");
             return result;
         }
 
-        foreach (var rule in _rules)
+        foreach (var rule in Rules)
         {
             var ruleResult = rule.Validate(item);
             if (!ruleResult.IsValid)

@@ -11,7 +11,7 @@ public class ValidationResult
     /// <summary>
     /// Список найденных ошибок. Если список пуст, валидация пройдена успешно.
     /// </summary>
-    public List<string> Errors { get; } = new List<string>();
+    public List<string> Errors { get; } = [];
 
 
     /// <summary>
@@ -37,11 +37,8 @@ public class ValidationResult
     /// Добавляет коллекцию ошибок в список результатов.
     /// </summary>
     /// <param name="errors">Коллекция текстов ошибок.</param>
-    public void AddErrors(IEnumerable<string> errors)
+    public void AddErrors(IEnumerable<string>? errors)
     {
-        if (errors is not null)
-        {
-            Errors.AddRange(errors);
-        }
+        if (errors is not null) Errors.AddRange(errors);
     }
 }

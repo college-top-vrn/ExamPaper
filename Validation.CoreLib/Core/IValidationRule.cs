@@ -4,7 +4,7 @@
 /// Определяет контракт для реализации правил проверки валидации.
 /// </summary>
 /// <typeparam name="T">Тип объекта, который подлежит проверке.</typeparam>
-public interface IValidationRule<T>
+public interface IValidationRule<in T>
 {
     /// <summary>
     /// Выполняет проверку переданного объекта.
