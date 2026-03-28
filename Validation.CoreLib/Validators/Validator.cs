@@ -40,15 +40,20 @@ public class Validator<T> : IValidator<T>
             return result;
         }
 
-        foreach (var rule in Rules)
-        {
-            var ruleResult = rule.Validate(item);
-            if (!ruleResult.IsValid)
-            {
-                result.AddErrors(ruleResult.Errors);
-            }
-        }
+        
+        
+        
+        // foreach (var rule in Rules)
+        // {
+        //     var ruleResult = rule.Validate(item);
+        //     if (!ruleResult.IsValid)
+        //     {
+        //         result.AddErrors(ruleResult.Errors);
+        //     }
+        // }
 
         return result;
     }
+    
+    
 }
