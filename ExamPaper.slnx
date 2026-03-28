@@ -14,5 +14,6 @@
   </Folder>  
   <Project Path="ExamPaper.Core\ExamPaper.Core.csproj" />
   <Project Path="ExamPaper.Json/ExamPaper.Json.csproj" />
+  <Project Path="Validation.CoreLib/Validation.CoreLib.csproj" />
 </Solution>
 
