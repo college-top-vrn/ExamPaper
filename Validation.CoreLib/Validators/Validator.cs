@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Validation.CoreLib.Core;
 
@@ -40,20 +41,11 @@ public class Validator<T> : IValidator<T>
             return result;
         }
 
-        
-        
-        
-        // foreach (var rule in Rules)
-        // {
-        //     var ruleResult = rule.Validate(item);
-        //     if (!ruleResult.IsValid)
-        //     {
-        //         result.AddErrors(ruleResult.Errors);
-        //     }
-        // }
+        var allErrors = Rules
+            .Select(rule => rule.Validate(item))
+            .SelectMany(r => r.Errors);
 
+        result.AddErrors(allErrors);
         return result;
     }
-    
-    
 }

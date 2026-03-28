@@ -13,13 +13,7 @@ public class ValidationResult
     /// </summary>
     public List<string> Errors { get; } = [];
 
-
-    /// <summary>
-    /// Возвращает true, если объект успешно прошел проверку (нет ошибок).
-    /// </summary>
-    public bool IsValid => Errors.Count == 0;
-
-
+    
     /// <summary>
     /// Добавляет ошибку в список ошибок.
     /// </summary>
