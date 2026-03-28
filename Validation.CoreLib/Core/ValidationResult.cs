@@ -12,14 +12,14 @@ public class ValidationResult
     /// Список найденных ошибок. Если список пуст, валидация пройдена успешно.
     /// </summary>
     public List<string> Errors { get; } = [];
-    
-    
+
+
     /// <summary>
     /// Указывает, пройдена ли валидация успешно (отсутствуют ли ошибки).
     /// </summary>
     /// <returns>True, если ошибок нет; иначе false.</returns>
-    public bool IsValid() => Errors.Count == 0; 
-    
+    public bool IsValid() => Errors.Count == 0;
+
     /// <summary>
     /// Добавляет ошибку в список ошибок.
     /// </summary>
