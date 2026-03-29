@@ -19,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExamPaper.Core\ExamPaper.Core.csproj" />
-    <ProjectReference Include="..\ExamPaper.Json\ExamPaper.Json.csproj" />
-    <ProjectReference Include="..\Validation.CoreLib\Validation.CoreLib.csproj" />
+    <ProjectReference Include="..\ExamPaper.Core\ExamPaper.Core.csproj"/>
+    <ProjectReference Include="..\ExamPaper.Json\ExamPaper.Json.csproj"/>
+    <ProjectReference Include="..\Validation.CoreLib\Validation.CoreLib.csproj"/>
   </ItemGroup>
 
 </Project>
