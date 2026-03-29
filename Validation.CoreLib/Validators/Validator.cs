@@ -35,12 +35,6 @@ public class Validator<T> : IValidator<T>
     {
         var result = new ValidationResult();
 
-        if (item is null)
-        {
-            result.AddError("Объект для валидации не может быть null.");
-            return result;
-        }
-
         var allErrors = Rules
             .Select(rule => rule.Validate(item))
             .SelectMany(r => r.Errors);

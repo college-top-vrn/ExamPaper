@@ -5,7 +5,7 @@ namespace Validation.CoreLib.Core;
 
 /// <summary>
 /// Представляет результат выполнения проверки (валидации).
-/// </summary>5
+/// </summary>
 public class ValidationResult
 {
     /// <summary>
@@ -13,11 +13,17 @@ public class ValidationResult
     /// </summary>
     public List<string> Errors { get; } = [];
 
-    
+
+    /// <summary>
+    /// Указывает, пройдена ли валидация успешно (отсутствуют ли ошибки).
+    /// </summary>
+    /// <returns>True, если ошибок нет; иначе false.</returns>
+    public bool IsValid() => Errors.Count == 0;
+
     /// <summary>
     /// Добавляет ошибку в список ошибок.
     /// </summary>
-    /// <param name="error"></param>
+    /// <param name="error">Текст ошибки.</param>
     public void AddError(string error)
     {
         if (!string.IsNullOrWhiteSpace(error))
