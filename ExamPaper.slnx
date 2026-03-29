@@ -11,7 +11,9 @@
     <File Path=".editorconfig" />
     <File Path="class_diagram.png" />
     <File Path="README.md" />
-  </Folder>
-  <Project Path="ExamPapers/ExamPapers.csproj" />
+  </Folder>  
+  <Project Path="ExamPaper.Core\ExamPaper.Core.csproj" />
+  <Project Path="ExamPaper.Json/ExamPaper.Json.csproj" />
+  <Project Path="Validation.CoreLib/Validation.CoreLib.csproj" />
   <Project Path="Test/Test.csproj" />
 </Solution>
